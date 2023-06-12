@@ -37,7 +37,7 @@ jobs:
         - uses: actions/checkout@v2
         - name: Test and return results
           run: |
-            pytest A01570669/app/main.py --html=report.html
+            pytest A01570669/app/test_main.py --html=report.html
         - name: Upload HTML report
           uses: actions/upload-artifact@v2
           with:
