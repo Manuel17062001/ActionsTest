@@ -46,7 +46,7 @@ jobs:
 
         - name: Test and return results
           run: |
-            pytest A01570669/app/test_main.py 
+            pytest A01570669/app/test_main.py --html=report.html
         - name: Upload HTML report A01570669/app/test_main.py 
           uses: actions/upload-artifact@v2
           with:
