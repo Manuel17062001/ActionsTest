@@ -58,7 +58,15 @@ jobs:
       needs: Test
       runs-on: ubuntu-latest
       steps:
-        - uses: actions/checkout@v1
-        - name: Package
+        - name: Checkout repository
+          uses: actions/checkout@v2
+  
+        - name: Create package
           run: |
             zip -r A01570669/package.zip A01570669/app/*.py
+  
+        - name: Upload package
+          uses: actions/upload-artifact@v2
+          with:
+            name: Package
+            path: A01570669/package.zip
