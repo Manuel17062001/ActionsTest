@@ -1,0 +1,7 @@
+# Python App Requirements
+
+# Pylint for static code analysis
+pylint==2.11.1
+
+# Pytest for unit testing
+pytest==6.2.4
