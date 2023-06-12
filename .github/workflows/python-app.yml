@@ -29,3 +29,17 @@ jobs:
         - name: Lint with Pylint
           run: |
             pylint A01570669/app/main.py    
+    Test:
+      name: Test
+      needs: build
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
+        - name: Test and return resuts
+          run: |
+            pytest --html=report.html
+        - name: Upload HTML report
+          uses: actions/upload-artifact@v2
+          with:
+              name: Test Report
+              path: report.html    
