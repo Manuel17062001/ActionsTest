@@ -51,4 +51,14 @@ jobs:
           uses: actions/upload-artifact@v2
           with:
               name: Test Report
-              path: A01570669/test/report.xml    
+              path: report.xml    
+
+    Package:
+      name: Package
+      needs: Test
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v1
+        - name: Package
+          run: |
+            zip -r A01570669/package.zip A01570669/app/*.py
