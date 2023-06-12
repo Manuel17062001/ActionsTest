@@ -24,7 +24,7 @@ jobs:
         - name: Install dependencies
           run: | 
             python -m pip install --upgrade pip
-            pip install pylint pytest
+            pip install pylint
             if [ -f python3/requirements.txt ]; then pip install -r python3/requirements.txt; fi
         - name: Lint with Pylint
           run: |
@@ -34,7 +34,16 @@ jobs:
       needs: build
       runs-on: ubuntu-latest
       steps:
-        - uses: actions/checkout@v2
+        - uses: actions/checkout@v3
+        - name: Set up Python 3.10
+          uses: actions/setup-python@v3
+          with:
+            python-version: "3.10"
+        - name: Install dependencies
+          run: | 
+            python -m pip install --upgrade pip
+            pip install pytest
+
         - name: Test and return results
           run: |
             pytest A01570669/app/test_main.py 
