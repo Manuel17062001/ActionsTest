@@ -35,12 +35,11 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v2
-        - name: Test and return resuts
+        - name: Test and return results
           run: |
-            pytest --html=report.html
+            pytest A01570669/app/main.py --html=report.html
         - name: Upload HTML report
           uses: actions/upload-artifact@v2
           with:
               name: Test Report
-              path: report.html    
-              
+              path: A01570669/test/report.html    
