@@ -46,12 +46,7 @@ jobs:
 
         - name: Test and return results
           run: |
-            pytest A01570669/app/test_main.py --junitxml=test-report.xml
-        - name: Upload report A01570669/app/test_main.py 
-          uses: actions/upload-artifact@v2
-          with:
-              name: Test Report
-              path: report.xml    
+            pytest A01570669/app/test_main.py
 
     Package:
       name: Package
@@ -59,14 +54,14 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: Checkout repository
-          uses: actions/checkout@v2
+          uses: actions/checkout@v3
   
         - name: Create package
           run: |
             zip -r A01570669/package.zip A01570669/app/*.py
   
         - name: Upload package
-          uses: actions/upload-artifact@v2
+          uses: actions/upload-artifact@v3
           with:
             name: Package
             path: A01570669/package.zip
